@@ -27,6 +27,8 @@ From the application's root directory, run node index. You'll receive a series o
 
 ![Screenshot](https://i.imgur.com/FSZFX05.jpg)
 
+### [Video](https://drive.google.com/file/d/1D69F83lNiKpiaDEjxOvH2o5i-FNvZXil/view)
+
 ## License
 
 This application is covered under the MIT license.

@@ -58,4 +58,27 @@ const promptManager = managerData => {
     ])
 };
 
-promptManager();
+const selectNext = () => {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'next',
+            message: 'Would you like to add an Engineer, Intern, or finish building your team?',
+            choices: ['Add an Engineer', 'Add an Intern', 'Finished'],
+            validate: nextInput => {
+                if (nextInput == 'Add an Engineer') {
+                    return promptEngineer();
+                } else if (nextInput == 'Add an Intern') {
+                    return promptIntern();
+                }
+                else if (nextInput == 'Finished') {
+                    return;
+                }
+            }
+        }
+    ])
+}
+
+const promptEngineer
+
+//promptManager();

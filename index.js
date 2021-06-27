@@ -58,27 +58,6 @@ const promptManager = managerData => {
     ])
 };
 
-const selectNext = () => {
-    return inquirer.prompt([
-        {
-            type: 'list',
-            name: 'next',
-            message: 'Would you like to add another employee, or have you finished building your team?',
-            choices: ['Add an Engineer', 'Add an Intern', 'Finished'],
-            validate: nextInput => {
-                if (nextInput == 'Add an Engineer') {
-                    return promptEngineer();
-                } else if (nextInput == 'Add an Intern') {
-                    return promptIntern();
-                }
-                else if (nextInput == 'Finished') {
-                    return;
-                }
-            }
-        }
-    ])
-}
-
 const promptEngineer = engineerData => {
     return inquirer.prompt([
         {
@@ -132,7 +111,85 @@ const promptEngineer = engineerData => {
                     return false;
                 }
             }
+        }
+    ])
+}
+
+const promptIntern = internData => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'What is the name of your intern?',
+            validate: internName => {
+                if (internName) {
+                    return true;
+                } else {
+                    console.log('Please enter the name of your intern!');
+                    return false;
+                }
+            }
         },
+        {
+            type: 'input',
+            name: 'internId',
+            message: `What is your intern's employee ID?`,
+            validate: internId => {
+                if (internId) {
+                    return true;
+                } else {
+                    console.log(`Please enter your intern's employee ID!`);
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: `What is your intern's email address?`,
+            validate: internEmail => {
+                if (internEmail) {
+                    return true;
+                } else {
+                    console.log(`Please enter your intern's email address!`);
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: `What is your intern's school?`,
+            validate: internSchool => {
+                if (internSchool) {
+                    return true;
+                } else {
+                    console.log(`Please enter your the name of your intern's School!`);
+                    return false;
+                }
+            }
+        }
+    ])
+}
+
+const selectNext = () => {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'next',
+            message: 'Would you like to add another employee, or have you finished building your team?',
+            choices: ['Add an Engineer', 'Add an Intern', 'Finished'],
+            validate: nextInput => {
+                if (nextInput == 'Add an Engineer') {
+                    return promptEngineer();
+                } else if (nextInput == 'Add an Intern') {
+                    return promptIntern();
+                }
+                else if (nextInput == 'Finished') {
+                    return;
+                }
+            }
+        }
     ])
 }
 

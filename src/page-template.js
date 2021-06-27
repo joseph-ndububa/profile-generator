@@ -6,6 +6,8 @@ function generateHtml(profileData) {
 
     let cards = [];
 
+    // create bootstrap cards for each employee type and push to cards array
+
     for (i = 0; i < profileData.length; i++) {
 
         if (profileData[i].managerName) {
@@ -55,14 +57,15 @@ function generateHtml(profileData) {
         }
     }
 
+    // reformat data from cards array for html template
+
     let cardElements = cards.join(" ");
 
-    return `
+    // html content with newly generated employee cards
 
+    return `
 <!DOCTYPE html>
 <html lang="en">
-
-</html>
 
 <head>
     <meta charset="UTF-8" />
@@ -87,7 +90,6 @@ ${cardElements}
 
 </html>
 `
-
 }
 
 module.exports = generateHtml;

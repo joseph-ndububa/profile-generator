@@ -3,6 +3,8 @@ const fs = require('fs');
 const generateHtml = require('./src/page-template.js');
 let profileInfo;
 
+//prompt user for manager info
+
 const promptManager = managerData => {
     profileInfo = [];
     return inquirer.prompt([
@@ -61,8 +63,11 @@ const promptManager = managerData => {
     ])
         .then(managerInfo => {
             profileInfo.push(managerInfo);
+            selectNext();
         })
 };
+
+//prompt user for engineer info
 
 const promptEngineer = engineerData => {
     return inquirer.prompt([
@@ -125,6 +130,8 @@ const promptEngineer = engineerData => {
         })
 }
 
+// prompt user for intern info
+
 const promptIntern = internData => {
     return inquirer.prompt([
         {
@@ -186,6 +193,8 @@ const promptIntern = internData => {
         })
 }
 
+// menu for adding members and finalizing team
+
 const selectNext = () => {
     return inquirer.prompt([
         {
@@ -211,7 +220,4 @@ const selectNext = () => {
         })
 }
 
-promptManager()
-    .then(info => {
-        selectNext();
-    })
+promptManager();

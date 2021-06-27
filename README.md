@@ -35,7 +35,7 @@ This application is covered under the MIT license.
 
 ### - What is your github username?
 
-You can find me on github at [josephn90] (https://github.com/josephn90)
+You can find me on github at [josephn90](https://github.com/josephn90)
 
 ### - How can I reach out?
 

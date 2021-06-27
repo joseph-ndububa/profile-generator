@@ -13,7 +13,7 @@ const promptManager = managerData => {
             name: 'managerName',
             message: 'What is the name of your team manager?',
             validate: managerName => {
-                if (managerName) {
+                if (typeof managerName === 'string') {
                     return true;
                 } else {
                     console.log('Please enter the name of your manager!');
@@ -26,7 +26,7 @@ const promptManager = managerData => {
             name: 'managerId',
             message: `What is your team manager's employee ID?`,
             validate: managerId => {
-                if (managerId) {
+                if (typeof managerId === 'number') {
                     return true;
                 } else {
                     console.log(`Please enter your team manager's employee ID!`);
@@ -39,7 +39,10 @@ const promptManager = managerData => {
             name: 'managerEmail',
             message: `What is your team manager's email address?`,
             validate: managerEmail => {
-                if (managerEmail) {
+                function emailValidationCheck(address) {
+                    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address);
+                }
+                if (managerEmail && emailValidationCheck(managerEmail)) {
                     return true;
                 } else {
                     console.log(`Please enter your team manager's email address!`);
@@ -52,7 +55,7 @@ const promptManager = managerData => {
             name: 'managerOffice',
             message: `What is your team manager's office number?`,
             validate: managerOffice => {
-                if (managerOffice) {
+                if (managerOffice === 'number') {
                     return true;
                 } else {
                     console.log(`Please enter your team manager's office number!`);

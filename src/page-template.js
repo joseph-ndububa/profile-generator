@@ -48,7 +48,7 @@ function generateHtml(profileData) {
             <div class="card-body bg-grey">
                 <p class="card-text">ID: ${intern.getId()}</p>
                 <p class="card-text">Email: ${intern.getEmail()}</p>
-                <p class="card-text">GitHub: ${intern.getSchool()}</p>
+                <p class="card-text">School: ${intern.getSchool()}</p>
             </div>
         </div>`
             cards.push(card);

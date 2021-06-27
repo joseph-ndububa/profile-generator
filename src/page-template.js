@@ -13,7 +13,7 @@ function generateHtml(profileData) {
             let card = `<div class="card mb-4 ml-4 mr-4 mt-4 shadow" style="width: 13rem;">
             <div class="card-header h5 bg-primary text-white">
                 <p>${manager.getName()}</p>
-                <p><span class="glyphicon glyphicon-tasks"></span>${manager.getRole()}</p>
+                <p><img src="../src/calendar.svg"> ${manager.getRole()}</p>
             </div>
             <div class="card-body bg-grey">
                 <p class="card-text">ID: ${manager.getId()}</p>
@@ -28,7 +28,7 @@ function generateHtml(profileData) {
             let card = ` <div class="card mb-4 ml-4 mr-4 mt-4 shadow" style="width: 13rem;">
             <div class="card-header h5 bg-primary text-white">
                 <p>${engineer.getName()}</p>
-                <p><span class="glyphicon glyphicon-wrench"></span>${engineer.getRole()}</p>
+                <p><img src="../src/wrench.svg"> ${engineer.getRole()}</p>
             </div>
             <div class="card-body bg-grey">
                 <p class="card-text">ID: ${engineer.getId()}</p>
@@ -43,7 +43,7 @@ function generateHtml(profileData) {
             let card = `<div class="card mb-4 ml-4 mr-4 mt-4 shadow" style="width: 13rem;">
             <div class="card-header h5 bg-primary text-white">
                 <p>${intern.getName()}</p>
-                <p><span class="glyphicon glyphicon-pencil"></span>${intern.getRole()}</p>
+                <p><img src="../src/pencil.svg"> ${intern.getRole()}</p>
             </div>
             <div class="card-body bg-grey">
                 <p class="card-text">ID: ${intern.getId()}</p>

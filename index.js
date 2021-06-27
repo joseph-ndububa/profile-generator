@@ -63,7 +63,7 @@ const selectNext = () => {
         {
             type: 'list',
             name: 'next',
-            message: 'Would you like to add an Engineer, Intern, or finish building your team?',
+            message: 'Would you like to add another employee, or have you finished building your team?',
             choices: ['Add an Engineer', 'Add an Intern', 'Finished'],
             validate: nextInput => {
                 if (nextInput == 'Add an Engineer') {
@@ -79,6 +79,61 @@ const selectNext = () => {
     ])
 }
 
-const promptEngineer
+const promptEngineer = engineerData => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'engineerName',
+            message: 'What is the name of your engineer?',
+            validate: engineerName => {
+                if (engineerName) {
+                    return true;
+                } else {
+                    console.log('Please enter the name of your engineer!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'engineerId',
+            message: `What is your engineer's employee ID?`,
+            validate: engineerId => {
+                if (engineerId) {
+                    return true;
+                } else {
+                    console.log(`Please enter your engineer's employee ID!`);
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'engineerEmail',
+            message: `What is your engineer's email address?`,
+            validate: engineerEmail => {
+                if (engineerEmail) {
+                    return true;
+                } else {
+                    console.log(`Please enter your engineer's email address!`);
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'engineerGithub',
+            message: `What is your engineer's GitHub username?`,
+            validate: engineerGithub => {
+                if (engineerGithub) {
+                    return true;
+                } else {
+                    console.log(`Please enter your engineer's GitHub username!`);
+                    return false;
+                }
+            }
+        },
+    ])
+}
 
 //promptManager();

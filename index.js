@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateHtml = require('./src/page-template.js');
 let profileInfo;
 
 const promptManager = managerData => {
@@ -202,7 +203,10 @@ const selectNext = () => {
                 return promptIntern();
             }
             else if (nextInfo.next == 'Finished') {
-                return console.log(profileInfo);
+                const htmlData = generateHtml(profileInfo);
+                fs.writeFile('./dist/profilePage.html', htmlData, err => {
+                    if (err) throw new Error(err);
+                })
             }
         })
 }

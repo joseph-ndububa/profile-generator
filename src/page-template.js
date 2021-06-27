@@ -1,8 +1,65 @@
-module.exports = profileData => {
+const Manager = require('../lib/Manager.js');
+const Engineer = require('../lib/Engineer.js');
+const Intern = require('../lib/Intern.js');
 
+function generateHtml(profileData) {
+
+    let cards = [];
+
+    for (i = 0; i < profileData.length; i++) {
+
+        if (profileData[i].managerName) {
+            let manager = new Manager(profileData[i].managerName, profileData[i].managerId, profileData[i].managerEmail, profileData[i].managerOffice);
+            let card = `<div class="card mb-3 ml-2 mr-2 mt-4" style="max-width: 13rem;">
+            <div class="card-header h5 bg-primary text-white">
+                <p>${manager.getName()}</p>
+                <p>${manager.getRole()}</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">ID: ${manager.getId()}</p>
+                <p class="card-text">Email: ${manager.getEmail()}</p>
+                <p class="card-text">Office Number: ${manager.getOffice()}</p>
+            </div>
+        </div>`
+            cards.push(card);
+        }
+        else if (profileData[i].engineerName) {
+            let engineer = new Engineer(profileData[i].engineerName, profileData[i].engineerId, profileData[i].engineerEmail, profileData[i].engineerGithub);
+            let card = ` <div class="card mb-3 ml-2 mr-2 mt-4" style="max-width: 13rem;">
+            <div class="card-header h5 bg-primary text-white">
+                <p>${engineer.getName()}</p>
+                <p>${engineer.getRole()}</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">ID: ${engineer.getId()}</p>
+                <p class="card-text">Email: ${engineer.getEmail()}</p>
+                <p class="card-text">GitHub: ${engineer.getGithub()}</p>
+            </div>
+        </div>`
+            cards.push(card);
+        }
+        else if (profileData[i].internName) {
+            let intern = new Intern(profileData[i].internName, profileData[i].internId, profileData[i].internEmail, profileData[i].internSchool);
+            let card = `<div class="card mb-3 ml-2 mr-2 mt-4" style="max-width: 13rem;">
+            <div class="card-header h5 bg-primary text-white">
+                <p>${intern.getName()}</p>
+                <p>${intern.getRole()}</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">ID: ${intern.getId()}</p>
+                <p class="card-text">Email: ${intern.getEmail()}</p>
+                <p class="card-text">GitHub: ${intern.getSchool()}</p>
+            </div>
+        </div>`
+            cards.push(card);
+        }
+    }
+
+    let cardElements = cards.join(" ");
 
     return `
-    <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 
 </html>
@@ -26,9 +83,12 @@ module.exports = profileData => {
 </header>
 
 <body>
-
+${cardElements}
 </body>
 
 </html>
-    `
+`
+
 }
+
+module.exports = generateHtml;

@@ -10,10 +10,10 @@ function generateHtml(profileData) {
 
         if (profileData[i].managerName) {
             let manager = new Manager(profileData[i].managerName, profileData[i].managerId, profileData[i].managerEmail, profileData[i].managerOffice);
-            let card = `<div class="card mb-3 ml-2 mr-2 mt-4" style="max-width: 13rem;">
+            let card = `<div class="card mb-4 ml-4 mr-4 mt-4 shadow" style="width: 13rem;">
             <div class="card-header h5 bg-primary text-white">
                 <p>${manager.getName()}</p>
-                <p>${manager.getRole()}</p>
+                <p><span class="glyphicon glyphicon-tasks"></span>${manager.getRole()}</p>
             </div>
             <div class="card-body">
                 <p class="card-text">ID: ${manager.getId()}</p>
@@ -25,10 +25,10 @@ function generateHtml(profileData) {
         }
         else if (profileData[i].engineerName) {
             let engineer = new Engineer(profileData[i].engineerName, profileData[i].engineerId, profileData[i].engineerEmail, profileData[i].engineerGithub);
-            let card = ` <div class="card mb-3 ml-2 mr-2 mt-4" style="max-width: 13rem;">
+            let card = ` <div class="card mb-4 ml-4 mr-4 mt-4 shadow" style="width: 13rem;">
             <div class="card-header h5 bg-primary text-white">
                 <p>${engineer.getName()}</p>
-                <p>${engineer.getRole()}</p>
+                <p><span class="glyphicon glyphicon-wrench"></span>${engineer.getRole()}</p>
             </div>
             <div class="card-body">
                 <p class="card-text">ID: ${engineer.getId()}</p>
@@ -40,10 +40,10 @@ function generateHtml(profileData) {
         }
         else if (profileData[i].internName) {
             let intern = new Intern(profileData[i].internName, profileData[i].internId, profileData[i].internEmail, profileData[i].internSchool);
-            let card = `<div class="card mb-3 ml-2 mr-2 mt-4" style="max-width: 13rem;">
+            let card = `<div class="card mb-4 ml-4 mr-4 mt-4 shadow" style="width: 13rem;">
             <div class="card-header h5 bg-primary text-white">
                 <p>${intern.getName()}</p>
-                <p>${intern.getRole()}</p>
+                <p><span class="glyphicon glyphicon-pencil"></span>${intern.getRole()}</p>
             </div>
             <div class="card-body">
                 <p class="card-text">ID: ${intern.getId()}</p>
@@ -77,13 +77,15 @@ function generateHtml(profileData) {
 </head>
 
 <header class="container">
-    <div class="col-12" id="header">
+    <div class="col-10" id="header">
         <h1 align="center" id="title">My Software Engineering Team</h1>
     </div>
 </header>
 
-<body>
+<body class="container">
+<div class="row col-10 justify-content-center">
 ${cardElements}
+</div>
 </body>
 
 </html>

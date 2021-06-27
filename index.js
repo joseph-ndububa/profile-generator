@@ -1,7 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+let profileInfo;
 
 const promptManager = managerData => {
+    profileInfo = [];
     return inquirer.prompt([
         {
             type: 'input',
@@ -56,6 +58,9 @@ const promptManager = managerData => {
             }
         }
     ])
+        .then(managerInfo => {
+            profileInfo.push(managerInfo);
+        })
 };
 
 const promptEngineer = engineerData => {
@@ -113,6 +118,10 @@ const promptEngineer = engineerData => {
             }
         }
     ])
+        .then(engineerInfo => {
+            profileInfo.push(engineerInfo);
+            selectNext();
+        })
 }
 
 const promptIntern = internData => {
@@ -170,6 +179,10 @@ const promptIntern = internData => {
             }
         }
     ])
+        .then(internInfo => {
+            profileInfo.push(internInfo);
+            selectNext();
+        })
 }
 
 const selectNext = () => {
@@ -179,18 +192,22 @@ const selectNext = () => {
             name: 'next',
             message: 'Would you like to add another employee, or have you finished building your team?',
             choices: ['Add an Engineer', 'Add an Intern', 'Finished'],
-            validate: nextInput => {
-                if (nextInput == 'Add an Engineer') {
-                    return promptEngineer();
-                } else if (nextInput == 'Add an Intern') {
-                    return promptIntern();
-                }
-                else if (nextInput == 'Finished') {
-                    return;
-                }
-            }
         }
     ])
+        .then(nextInfo => {
+            if (nextInfo.next == 'Add an Engineer') {
+                return promptEngineer();
+            }
+            else if (nextInfo.next == 'Add an Intern') {
+                return promptIntern();
+            }
+            else if (nextInfo.next == 'Finished') {
+                return console.log(profileInfo);
+            }
+        })
 }
 
-//promptManager();
+promptManager()
+    .then(info => {
+        selectNext();
+    })

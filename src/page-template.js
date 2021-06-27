@@ -15,7 +15,7 @@ function generateHtml(profileData) {
                 <p>${manager.getName()}</p>
                 <p><span class="glyphicon glyphicon-tasks"></span>${manager.getRole()}</p>
             </div>
-            <div class="card-body">
+            <div class="card-body bg-grey">
                 <p class="card-text">ID: ${manager.getId()}</p>
                 <p class="card-text">Email: ${manager.getEmail()}</p>
                 <p class="card-text">Office Number: ${manager.getOffice()}</p>
@@ -30,7 +30,7 @@ function generateHtml(profileData) {
                 <p>${engineer.getName()}</p>
                 <p><span class="glyphicon glyphicon-wrench"></span>${engineer.getRole()}</p>
             </div>
-            <div class="card-body">
+            <div class="card-body bg-grey">
                 <p class="card-text">ID: ${engineer.getId()}</p>
                 <p class="card-text">Email: ${engineer.getEmail()}</p>
                 <p class="card-text">GitHub: ${engineer.getGithub()}</p>
@@ -45,7 +45,7 @@ function generateHtml(profileData) {
                 <p>${intern.getName()}</p>
                 <p><span class="glyphicon glyphicon-pencil"></span>${intern.getRole()}</p>
             </div>
-            <div class="card-body">
+            <div class="card-body bg-grey">
                 <p class="card-text">ID: ${intern.getId()}</p>
                 <p class="card-text">Email: ${intern.getEmail()}</p>
                 <p class="card-text">GitHub: ${intern.getSchool()}</p>
@@ -72,14 +72,11 @@ function generateHtml(profileData) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./style.css" />
     <title>Engineering Team Profile</title>
 </head>
 
-<header class="container">
-    <div class="col-10" id="header">
-        <h1 align="center" id="title">My Software Engineering Team</h1>
-    </div>
+<header class="row col-10 bg-danger text-white justify-content-center" style="height: 150px;">
+    <h4 class="my-auto">My team<h4>
 </header>
 
 <body class="container">
